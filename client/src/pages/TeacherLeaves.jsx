@@ -19,7 +19,7 @@ function TeacherLeaves() {
     }
   };
 
-  useEffect(() => { fetchLeaves(); }, [token]);
+  useEffect(() => { fetchLeaves(); }, [token, fetchLeaves]);
 
   const handleReview = async (leaveId, status) => {
     setError(""); setSuccess("");

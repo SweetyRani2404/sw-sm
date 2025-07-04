@@ -22,7 +22,7 @@ function StudentLeave() {
     }
   };
 
-  useEffect(() => { fetchLeaves(); }, [token]);
+  useEffect(() => { fetchLeaves(); }, [token, fetchLeaves]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
