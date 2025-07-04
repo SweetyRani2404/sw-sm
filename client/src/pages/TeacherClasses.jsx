@@ -10,7 +10,7 @@ function TeacherClasses() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/teacher/students", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/teacher/students", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -26,7 +26,7 @@ function TeacherClasses() {
 
   const handleSelect = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:5001/api/teacher/students/${id}`, {
+      const res = await axios.get(`https://sw-sm.onrender.com/api/teacher/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSelected(res.data);

@@ -14,7 +14,7 @@ function LoginPage() {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("http://localhost:5001/api/login", { email, password });
+      const res = await axios.post("https://sw-sm.onrender.com/api/login", { email, password });
       login(res.data.user, res.data.token);
       // Redirect based on role
       if (res.data.user.role === "admin") navigate("/admin-dashboard");
@@ -28,7 +28,7 @@ function LoginPage() {
 
   const handleDevLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5001/api/dev-auto-login");
+      const res = await axios.post("https://sw-sm.onrender.com/api/dev-auto-login");
       login(res.data.user, res.data.token);
       navigate("/admin-dashboard");
     } catch (err) {

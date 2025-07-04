@@ -9,7 +9,7 @@ function AdminLeaves() {
   useEffect(() => {
     const fetchLeaves = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/leave/admin/leaves", {
+        const res = await axios.get("https://sw-sm.onrender.com/api/leave/admin/leaves", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLeaves(res.data);

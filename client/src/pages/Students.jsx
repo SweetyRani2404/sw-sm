@@ -13,7 +13,7 @@ function Students() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/admin/students", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/admin/students", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -33,7 +33,7 @@ function Students() {
     setSuccess("");
     try {
       await axios.post(
-        "http://localhost:5001/api/admin/create-student",
+        "https://sw-sm.onrender.com/api/admin/create-student",
         { name, email, password },
         { headers: { Authorization: `Bearer ${token}` } }
       );

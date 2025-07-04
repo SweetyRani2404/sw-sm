@@ -12,7 +12,7 @@ function TeacherGrades() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/teacher/students", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/teacher/students", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -43,7 +43,7 @@ function TeacherGrades() {
         students.map((student) =>
           marks[student._id]
             ? axios.post(
-                "http://localhost:5001/api/teacher/grades",
+                "https://sw-sm.onrender.com/api/teacher/grades",
                 {
                   studentId: student._id,
                   subject,

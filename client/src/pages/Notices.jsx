@@ -12,7 +12,7 @@ function Notices() {
 
   const fetchNotices = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/notices", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/notices", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotices(res.data);
@@ -32,7 +32,7 @@ function Notices() {
     setSuccess("");
     try {
       await axios.post(
-        "http://localhost:5001/api/notices",
+        "https://sw-sm.onrender.com/api/notices",
         { title, content },
         { headers: { Authorization: `Bearer ${token}` } }
       );

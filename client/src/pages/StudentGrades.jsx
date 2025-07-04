@@ -9,7 +9,7 @@ function StudentGrades() {
 
   const fetchGrades = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/student/grades", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/student/grades", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGrades(res.data);

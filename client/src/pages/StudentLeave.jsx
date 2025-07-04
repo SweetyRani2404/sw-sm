@@ -13,7 +13,7 @@ function StudentLeave() {
 
   const fetchLeaves = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/leave/student/leaves", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/leave/student/leaves", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(res.data);
@@ -29,7 +29,7 @@ function StudentLeave() {
     setError(""); setSuccess("");
     try {
       await axios.post(
-        "http://localhost:5001/api/leave/student/leave",
+        "https://sw-sm.onrender.com/api/leave/student/leave",
         { fromDate, toDate, reason },
         { headers: { Authorization: `Bearer ${token}` } }
       );

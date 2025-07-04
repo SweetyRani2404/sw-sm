@@ -25,11 +25,11 @@ function AdminDashboard() {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const teacherRes = await axios.get("http://localhost:5001/api/admin/teachers", {
+        const teacherRes = await axios.get("https://sw-sm.onrender.com/api/admin/teachers", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTeacherCount(teacherRes.data.length);
-        const studentRes = await axios.get("http://localhost:5001/api/teacher/students", {
+        const studentRes = await axios.get("https://sw-sm.onrender.com/api/teacher/students", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStudentCount(studentRes.data.length);

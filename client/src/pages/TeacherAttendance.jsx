@@ -12,7 +12,7 @@ function TeacherAttendance() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/teacher/students", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/teacher/students", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -42,7 +42,7 @@ function TeacherAttendance() {
       await Promise.all(
         students.map((student) =>
           axios.post(
-            "http://localhost:5001/api/teacher/attendance",
+            "https://sw-sm.onrender.com/api/teacher/attendance",
             {
               studentId: student._id,
               date,

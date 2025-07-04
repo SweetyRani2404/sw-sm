@@ -9,7 +9,7 @@ function StudentAttendance() {
 
   const fetchAttendance = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/student/attendance", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/student/attendance", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRecords(res.data);

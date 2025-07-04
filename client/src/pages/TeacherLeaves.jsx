@@ -10,7 +10,7 @@ function TeacherLeaves() {
 
   const fetchLeaves = useCallback(async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/leave/teacher/leaves", {
+      const res = await axios.get("https://sw-sm.onrender.com/api/leave/teacher/leaves", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(res.data);
@@ -25,7 +25,7 @@ function TeacherLeaves() {
     setError(""); setSuccess("");
     try {
       await axios.patch(
-        `http://localhost:5001/api/leave/teacher/leave/${leaveId}`,
+        `https://sw-sm.onrender.com/api/leave/teacher/leave/${leaveId}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

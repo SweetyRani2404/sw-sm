@@ -23,7 +23,7 @@ function StudentDashboard() {
     // Fetch attendance
     const fetchAttendance = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/student/attendance", {
+        const res = await axios.get("https://sw-sm.onrender.com/api/student/attendance", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAttendance(res.data);
@@ -34,7 +34,7 @@ function StudentDashboard() {
     // Fetch notices
     const fetchNotices = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/notices", {
+        const res = await axios.get("https://sw-sm.onrender.com/api/notices", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setNotices(res.data);
