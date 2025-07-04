@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -11,7 +11,7 @@ function StudentLeave() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const fetchLeaves = async () => {
+  const fetchLeaves = useCallback(async () => {
     try {
       const res = await axios.get("http://localhost:5001/api/leave/student/leaves", {
         headers: { Authorization: `Bearer ${token}` },
@@ -20,7 +20,7 @@ function StudentLeave() {
     } catch (err) {
       setLeaves([]);
     }
-  };
+  }, [token]);
 
   useEffect(() => { fetchLeaves(); }, [token, fetchLeaves]);
 
