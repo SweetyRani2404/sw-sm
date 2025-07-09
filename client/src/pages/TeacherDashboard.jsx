@@ -43,7 +43,7 @@ function TeacherDashboard() {
     };
     fetchStudents();
     fetchAttendanceStats();
-  }, [token]);
+  }, [token, API_BASE_URL]);
 
   const classStrength = students.length;
   const attendanceData = {

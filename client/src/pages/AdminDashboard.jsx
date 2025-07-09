@@ -40,7 +40,7 @@ function AdminDashboard() {
       }
     };
     fetchCounts();
-  }, [token]);
+  }, [token, API_BASE_URL]);
 
   const barData = {
     labels: ["Teachers", "Students"],

@@ -45,7 +45,7 @@ function StudentDashboard() {
     };
     fetchAttendance();
     fetchNotices();
-  }, [token]);
+  }, [token, API_BASE_URL]);
 
   // Attendance summary for pie chart
   const presentCount = attendance.filter(a => a.status === "Present").length;
