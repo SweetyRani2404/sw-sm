@@ -21,12 +21,13 @@ function TeacherDashboard() {
   const location = useLocation();
   const [students, setStudents] = useState([]);
   const [attendanceStats, setAttendanceStats] = useState({ Present: 0, Absent: 0 });
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch students for class strength
     const fetchStudents = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/teacher/students", {
+        const res = await axios.get(`${API_BASE_URL}/api/teacher/students`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStudents(res.data);

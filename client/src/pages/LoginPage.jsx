@@ -9,12 +9,13 @@ function LoginPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("https://sw-sm.onrender.com/api/login", { email, password });
+      const res = await axios.post(`${API_BASE_URL}/api/login`, { email, password });
       login(res.data.user, res.data.token);
       // Redirect based on role
       if (res.data.user.role === "admin") navigate("/admin-dashboard");
@@ -28,7 +29,7 @@ function LoginPage() {
 
   const handleDevLogin = async () => {
     try {
-      const res = await axios.post("https://sw-sm.onrender.com/api/dev-auto-login");
+      const res = await axios.post(`${API_BASE_URL}/api/dev-auto-login`);
       login(res.data.user, res.data.token);
       navigate("/admin-dashboard");
     } catch (err) {

@@ -11,9 +11,11 @@ function Teachers() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const fetchTeachers = async () => {
     try {
-      const res = await axios.get("https://sw-sm.onrender.com/api/admin/teachers", {
+      const res = await axios.get(`${API_BASE_URL}/api/admin/teachers`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTeachers(res.data);
@@ -33,7 +35,7 @@ function Teachers() {
     setSuccess("");
     try {
       await axios.post(
-        "https://sw-sm.onrender.com/api/admin/create-teacher",
+        `${API_BASE_URL}/api/admin/create-teacher`,
         { name, email, password },
         { headers: { Authorization: `Bearer ${token}` } }
       );

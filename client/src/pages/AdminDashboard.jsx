@@ -21,15 +21,16 @@ function AdminDashboard() {
   const location = useLocation();
   const [teacherCount, setTeacherCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const teacherRes = await axios.get("https://sw-sm.onrender.com/api/admin/teachers", {
+        const teacherRes = await axios.get(`${API_BASE_URL}/api/admin/teachers`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setTeacherCount(teacherRes.data.length);
-        const studentRes = await axios.get("https://sw-sm.onrender.com/api/teacher/students", {
+        const studentRes = await axios.get(`${API_BASE_URL}/api/teacher/students`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStudentCount(studentRes.data.length);

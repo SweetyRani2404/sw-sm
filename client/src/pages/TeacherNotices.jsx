@@ -7,9 +7,11 @@ function TeacherNotices() {
   const [notices, setNotices] = useState([]);
   const [error, setError] = useState("");
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const fetchNotices = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/api/notices", {
+      const res = await axios.get(`${API_BASE_URL}/api/notices`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotices(res.data);

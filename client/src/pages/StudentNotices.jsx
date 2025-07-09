@@ -7,16 +7,18 @@ function StudentNotices() {
   const [notices, setNotices] = useState([]);
   const [error, setError] = useState("");
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const fetchNotices = useCallback(async () => {
     try {
-      const res = await axios.get("https://sw-sm.onrender.com/api/notices", {
+      const res = await axios.get(`${API_BASE_URL}/api/notices`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotices(res.data);
     } catch (err) {
       setError("Failed to fetch notices");
     }
-  }, [token]);
+  }, [token, API_BASE_URL]);
 
   useEffect(() => {
     fetchNotices();

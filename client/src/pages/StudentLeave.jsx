@@ -11,16 +11,18 @@ function StudentLeave() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const fetchLeaves = useCallback(async () => {
     try {
-      const res = await axios.get("https://sw-sm.onrender.com/api/leave/student/leaves", {
+      const res = await axios.get(`${API_BASE_URL}/api/leave/student/leaves`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(res.data);
     } catch (err) {
       setLeaves([]);
     }
-  }, [token]);
+  }, [token, API_BASE_URL]);
 
   useEffect(() => { fetchLeaves(); }, [token, fetchLeaves]);
 
@@ -29,7 +31,7 @@ function StudentLeave() {
     setError(""); setSuccess("");
     try {
       await axios.post(
-        "https://sw-sm.onrender.com/api/leave/student/leave",
+        `${API_BASE_URL}/api/leave/student/leave`,
         { fromDate, toDate, reason },
         { headers: { Authorization: `Bearer ${token}` } }
       );

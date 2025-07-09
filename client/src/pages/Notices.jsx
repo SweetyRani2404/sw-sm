@@ -10,9 +10,11 @@ function Notices() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const fetchNotices = async () => {
     try {
-      const res = await axios.get("https://sw-sm.onrender.com/api/notices", {
+      const res = await axios.get(`${API_BASE_URL}/api/notices`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setNotices(res.data);
@@ -32,7 +34,7 @@ function Notices() {
     setSuccess("");
     try {
       await axios.post(
-        "https://sw-sm.onrender.com/api/notices",
+        `${API_BASE_URL}/api/notices`,
         { title, content },
         { headers: { Authorization: `Bearer ${token}` } }
       );

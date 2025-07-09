@@ -10,9 +10,11 @@ function TeacherGrades() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("https://sw-sm.onrender.com/api/teacher/students", {
+      const res = await axios.get(`${API_BASE_URL}/api/teacher/students`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -43,7 +45,7 @@ function TeacherGrades() {
         students.map((student) =>
           marks[student._id]
             ? axios.post(
-                "https://sw-sm.onrender.com/api/teacher/grades",
+                `${API_BASE_URL}/api/teacher/grades`,
                 {
                   studentId: student._id,
                   subject,

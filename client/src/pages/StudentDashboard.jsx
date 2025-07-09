@@ -18,12 +18,13 @@ function StudentDashboard() {
   const navigate = useNavigate();
   const [attendance, setAttendance] = useState([]);
   const [notices, setNotices] = useState([]);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     // Fetch attendance
     const fetchAttendance = async () => {
       try {
-        const res = await axios.get("https://sw-sm.onrender.com/api/student/attendance", {
+        const res = await axios.get(`${API_BASE_URL}/api/student/attendance`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAttendance(res.data);
@@ -34,7 +35,7 @@ function StudentDashboard() {
     // Fetch notices
     const fetchNotices = async () => {
       try {
-        const res = await axios.get("https://sw-sm.onrender.com/api/notices", {
+        const res = await axios.get(`${API_BASE_URL}/api/notices`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setNotices(res.data);
